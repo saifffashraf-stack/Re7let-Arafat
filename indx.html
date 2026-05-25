@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <title>منصة يوم عرفة</title>
+    <style>
+        body { margin: 0; min-height: 100vh; font-family: 'Amiri', serif; color: white; display: flex; flex-direction: column; align-items: center; background: radial-gradient(circle at center, #2e1b4e, #1a1a40, #050505); background-attachment: fixed; overflow-x: hidden; }
+        body::before { content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: radial-gradient(white, rgba(255,255,255,.2) 1px, transparent 2px); background-size: 50px 50px; pointer-events: none; }
+
+        .main-title { font-size: clamp(2rem, 8vw, 3.5rem); margin: 20px 0; color: #ffd700; text-shadow: 0 0 20px #ffd700; z-index: 10; text-align: center; }
+        
+        .nav-container { width: 95%; display: flex; align-items: center; gap: 10px; z-index: 10; margin-bottom: 25px; flex-wrap: wrap; justify-content: center; }
+        .schedule-btn { background: #d4af37; color: #000; padding: 12px 25px; border-radius: 30px; font-weight: bold; cursor: pointer; border: none; font-size: 1.1rem; box-shadow: 0 0 15px #d4af37; }
+        
+        .marquee-wrapper { width: 70%; overflow: hidden; background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 50px; backdrop-filter: blur(5px); }
+        .nav-bar { display: flex; animation: scroll 40s linear infinite; gap: 20px; white-space: nowrap; }
+        @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+        
+        .menu-item { cursor: pointer; padding: 10px 20px; border-radius: 20px; transition: 0.3s; border: 1px solid #d4af37; font-size: 1.1rem; }
+        .menu-item:hover { background: #d4af37; color: #000; font-weight: bold; }
+
+        .card { width: 90%; max-width: 600px; min-height: 450px; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(15px); border: 2px solid #d4af37; border-radius: 30px; padding: 30px; text-align: center; color: #fff; z-index: 10; transition: 0.5s; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .card h2 { color: #ffd700; font-size: 2rem; margin-bottom: 15px; }
+        .text-box { background: rgba(0,0,0,0.4); padding: 20px; border-radius: 20px; border-right: 8px solid #d4af37; text-align: right; margin-top: 15px; font-size: 1.3rem; line-height: 1.8; color: #e0e0e0; }
+        
+        .video-btn { display: inline-block; background: #ffd700; color: #000; padding: 10px 20px; border-radius: 15px; text-decoration: none; font-weight: bold; font-size: 1.1rem; margin-top: 15px; }
+        .check-item { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 1.2rem; }
+        
+        .my-image { position: fixed; bottom: 0; width: 150px; z-index: 5; }
+        .img-left { left: 10px; }
+        .img-right { right: 10px; }
+
+        @media (max-width: 768px) { .my-image { display: none; } }
+    </style>
+</head>
+<body>
+
+    <h1 class="main-title">يوم عرفة</h1>
+
+    <div class="nav-container">
+        <button class="schedule-btn" onclick="show('جدول')">استغل يومك</button>
+        <div class="marquee-wrapper">
+            <div class="nav-bar">
+                <div class="menu-item" onclick="show('صيام')">صيام عرفة</div>
+                <div class="menu-item" onclick="show('تكبير')">تكبير العيد</div>
+                <div class="menu-item" onclick="show('دعاء')">أدعية عرفة</div>
+                <div class="menu-item" onclick="show('استغفار')">سيد الاستغفار</div>
+                <div class="menu-item" onclick="show('ذكر')">أذكار</div>
+                <div class="menu-item" onclick="show('توبة')">التوبة</div>
+                <div class="menu-item" onclick="show('تجديد')">تجديد العهد</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card" id="content-card">
+        <h2>أهلاً بك في رحاب يوم عرفة</h2>
+        <p style="font-size: 1.5rem; color: #ffd700;">"خير يوم طلعت عليه الشمس"</p>
+        <div class="text-box" style="text-align: center;">
+            أخي الحبيب، اصطفاك الله لتدرك هذا اليوم العظيم. اجعل قلبك حاضراً، ونيتك صادقة. لا تخرج من هذا اليوم إلا وقد غُفر ذنبك، وانشرح صدرك، واستجيبت دعوتك.
+        </div>
+    </div>
+
+    <img src="c:\Users\top\Downloads\Gemini_Generated_Image_sv58oisv58oisv58-removebg-preview (1).png" 
+     style="position: fixed; bottom: 20px; right: 20px; width: 150px; z-index: 100;" 
+     alt="صورة اليمين">
+
+<img src="c:\Users\top\Downloads\Gemini_Generated_Image_sv58oisv58oisv58-removebg-preview (1).png" 
+     style="position: fixed; bottom: 20px; left: 20px; width: 150px; z-index: 100;" 
+     alt="صورة الشمال">
+        const content = {
+            'صيام': '<h2>فضل صيام عرفة</h2><div class="text-box">"صيام يوم عرفة أحتسب على الله أن يكفر السنة التي قبله والباقية".. عامان كاملان من الذنوب تُغفر بصيام يوم واحد، فاجعل نيتك خالصة لله.</div>',
+            'تكبير': `<h2>تكبير العيد</h2><div class="text-box">"الله أكبر، الله أكبر، لا إله إلا الله، الله أكبر، الله أكبر ولله الحمد".<br>
+                <a href="https://youtube.com/shorts/QbuLnB0CY40?si=m2A0hcabLwY_nQw1" target="_blank" class="video-btn">🎥 اسمع تكبيرات الحرم</a></div>`,
+            'دعاء': '<h2>أدعية عرفة</h2><div class="text-box">"اللهم آتنا في الدنيا حسنة وفي الآخرة حسنة وقنا عذاب النار.. اللهم إني ظلمت نفسي ظلماً كثيراً ولا يغفر الذنوب إلا أنت، فاغفر لي مغفرة من عندك وارحمني".</div>',
+            'استغفار': '<h2>سيد الاستغفار</h2><div class="text-box">"اللهم أنت ربي لا إله إلا أنت خلقتني وأنا عبدك، وأنا على عهدك ووعدك ما استطعت".. هي مفتاح أبواب السماء المغلقة.</div>',
+            'ذكر': '<h2>أذكار جليلة</h2><div class="text-box">أفضل الذكر: "لا إله إلا الله وحده لا شريك له، له الملك وله الحمد، وهو على كل شيء قدير".. كررها مئات المرات فهي تملأ ميزانك نوراً.</div>',
+            'توبة': '<h2>التوبة الصادقة</h2><div class="text-box">"يا أيها الذين آمنوا توبوا إلى الله توبة نصوحاً".. طهّر قلبك من الغل والحسد، واجعل توبتك بداية لحياة جديدة مع الله.</div>',
+            'تجديد': '<h2>تجديد العهد</h2><div class="text-box">"اللهم إني أعاهدك على الثبات على طاعتك، واجعل قلبي معلقاً بك وحدك".. هذا العهد هو أمانك في زمن الفتن.</div>',
+            'جدول': `<h2>استغل يومك</h2><div class="text-box">
+                <div class="check-item"><input type="checkbox"> صلاة الفجر والأذكار</div>
+                <div class="check-item"><input type="checkbox"> صلاة الضحى وقراءة القرآن</div>
+                <div class="check-item"><input type="checkbox"> التهليل والتسبيح</div>
+                <div class="check-item"><input type="checkbox"> صلاة الظهر والاستغفار</div>
+                <div class="check-item"><input type="checkbox"> ساعة الدعاء (بين الظهر والمغرب)</div>
+                <div class="check-item"><input type="checkbox"> الإفطار والحمد لله</div>
+            </div>`
+        };
+
+        function show(key) {
+            const card = document.getElementById('content-card');
+            card.style.opacity = 0;
+            setTimeout(() => {
+                card.innerHTML = content[key];
+                card.style.opacity = 1;
+            }, 300);
+        }
+    </script>
+</body>
+</html>
